@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <fstream>
 #include <cstdlib>
@@ -111,13 +112,15 @@ private:
     vector <Password> lockedDB;
     vector <Password> unlockedDB;
 public:
+    Database() {}
+
     Database(const vector<Password> &lockedDb, const vector<Password> &unlockedDb) : lockedDB(lockedDb),
                                                                                      unlockedDB(unlockedDb) {}
     string getTitle(){
         string line = "";
         cout << "Enter title:   ";
         //cin.clear();
-        cin.ignore();
+        //cin.ignore();
         getline(cin, line);
         if(line.length() < 1 || line.length() > 30)
         {
@@ -130,7 +133,7 @@ public:
     string getEmail(){
         string line = "";
         cout << "Enter email:   ";
-        getline(cin, line);
+        cin >> line;
         if (line.length() < 3 || line.length() > 30){
             cout << "Error! Email must be between 1-30 characters" << endl;
             return getEmail();
@@ -193,7 +196,6 @@ public:
         bool lowerCase = false;
         bool number = false;
         cout << "Enter password:    ";
-        cin.clear();
         getline(cin, line);
         if(line.length() < 4) {
             cout << "Error! Password must be at least 4 characters." << endl;
@@ -279,11 +281,11 @@ public:
     }
     void exportDatabase(){
         int userCH = 0;
-        cout << "1- Export database to file as plain text." << endl;
-        cout << "2- Export database to file as cipher text." << endl;
-        cout << "3- Print database to screen as plain text." << endl;
-        cout << "4- Print database to screen as cipher text." << endl;
-        cout << "5- Back." << endl;
+        cout << "1 - Export database to file as plain text." << endl;
+        cout << "2 - Export database to file as cipher text." << endl;
+        cout << "3 - Print database to screen as plain text." << endl;
+        cout << "4 - Print database to screen as cipher text." << endl;
+        cout << "5 - Back." << endl;
         cin >> userCH;
         while(userCH < 1 || userCH > 5){
             cout << "Enter an option from the menu: ";
