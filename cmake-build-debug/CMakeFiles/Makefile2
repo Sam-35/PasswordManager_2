@@ -65,39 +65,39 @@ CMAKE_SOURCE_DIR = /Users/sam/Desktop/Github/PasswordManager_2
 CMAKE_BINARY_DIR = /Users/sam/Desktop/Github/PasswordManager_2/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/Final2.dir
+# Target rules for target CMakeFiles/Final.dir
 
 # All Build rule for target.
-CMakeFiles/Final2.dir/all:
-	$(MAKE) -f CMakeFiles/Final2.dir/build.make CMakeFiles/Final2.dir/depend
-	$(MAKE) -f CMakeFiles/Final2.dir/build.make CMakeFiles/Final2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/sam/Desktop/Github/PasswordManager_2/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Final2"
-.PHONY : CMakeFiles/Final2.dir/all
+CMakeFiles/Final.dir/all:
+	$(MAKE) -f CMakeFiles/Final.dir/build.make CMakeFiles/Final.dir/depend
+	$(MAKE) -f CMakeFiles/Final.dir/build.make CMakeFiles/Final.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/sam/Desktop/Github/PasswordManager_2/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Final"
+.PHONY : CMakeFiles/Final.dir/all
 
 # Include target in all.
-all: CMakeFiles/Final2.dir/all
+all: CMakeFiles/Final.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Final2.dir/rule: cmake_check_build_system
+CMakeFiles/Final.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sam/Desktop/Github/PasswordManager_2/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Final2.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Final.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sam/Desktop/Github/PasswordManager_2/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Final2.dir/rule
+.PHONY : CMakeFiles/Final.dir/rule
 
 # Convenience name for target.
-Final2: CMakeFiles/Final2.dir/rule
+Final: CMakeFiles/Final.dir/rule
 
-.PHONY : Final2
-
-# clean rule for target.
-CMakeFiles/Final2.dir/clean:
-	$(MAKE) -f CMakeFiles/Final2.dir/build.make CMakeFiles/Final2.dir/clean
-.PHONY : CMakeFiles/Final2.dir/clean
+.PHONY : Final
 
 # clean rule for target.
-clean: CMakeFiles/Final2.dir/clean
+CMakeFiles/Final.dir/clean:
+	$(MAKE) -f CMakeFiles/Final.dir/build.make CMakeFiles/Final.dir/clean
+.PHONY : CMakeFiles/Final.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Final.dir/clean
 
 .PHONY : clean
 

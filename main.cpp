@@ -107,11 +107,12 @@ public:
 class Database
 {
 private:
-    string key = "Password";
+    string key = "Password"; //FOR TESTING
     vector <Password> lockedDB;
     vector <Password> unlockedDB;
 public:
-
+    Database(const vector<Password> &lockedDb, const vector<Password> &unlockedDb) : lockedDB(lockedDb),
+                                                                                     unlockedDB(unlockedDb) {}
     string getTitle(){
         string line = "";
         cout << "Enter title:   ";
@@ -129,7 +130,6 @@ public:
     string getEmail(){
         string line = "";
         cout << "Enter email:   ";
-        cin.ignore();
         getline(cin, line);
         if (line.length() < 3 || line.length() > 30){
             cout << "Error! Email must be between 1-30 characters" << endl;
@@ -149,7 +149,6 @@ public:
     string getUsername(){
         string line = "";
         cout << "Enter username:    ";
-        cin.clear();
         getline(cin, line);
         if (line.length() < 1 || line.length() > 30){
             cout << "Error! Username must be between 1-30 characters" << endl;
@@ -158,7 +157,7 @@ public:
         return line;
     }
 
-    bool checkPassword(const string &password)
+    bool getPassword(const string &password)
     {
         bool upperCase = false;
         bool lowerCase = false;
@@ -187,6 +186,7 @@ public:
 
     string getPassword()
     {
+        cout << "Note:password must be at least 4 chars, includes 1 uppercase, 1 lowercase and 1 digit"  << endl;
         string line = "";
         bool saved = false;
         bool upperCase = false;
@@ -195,11 +195,11 @@ public:
         cout << "Enter password:    ";
         cin.clear();
         getline(cin, line);
-        if(line.length() < 3) {
-            cout << "Error! Password must be at least 3 characters." << endl;
+        if(line.length() < 4) {
+            cout << "Error! Password must be at least 4 characters." << endl;
             return getPassword();
         }
-        if(!checkPassword(line)){
+        if(!getPassword(line)){
             cout << "Warning! Please consider using lower/uppercase characters and digits." << endl;
             return getPassword();
         }
@@ -227,7 +227,6 @@ public:
         {
             case 1:
             {
-                cout << "Note: password must be >6 chars \nincludes one uppercase, one lowercase and one digit." << endl;
                 Password temp;
                 temp.setTitle(getTitle());
                 temp.setEmail(getEmail());
@@ -238,8 +237,8 @@ public:
                 break;
             }
             case 2:
-                cout << "Feature in development." << endl;
-                //Call to function:
+                cout << "In progress" << endl;
+                //removeRecord();
                 break;
             case 3:
                 exportDatabase();
@@ -252,6 +251,19 @@ public:
                 break;
         }//End of switch
     }//End of function: editDatabase
+
+    void removeRecord(){
+        string line = "";
+        int index = 0;
+        getline(cin, line);
+        for(Password x: unlockedDB){
+            if(line == x.getTitle()){
+
+                //unlockedDB.erase()
+            }
+            cout << x.toString() << endl;
+        }
+    }
 
     void printData(){
         for(Password x: unlockedDB){
@@ -270,7 +282,7 @@ public:
         cout << "1- Export database to file as plain text." << endl;
         cout << "2- Export database to file as cipher text." << endl;
         cout << "3- Print database to screen as plain text." << endl;
-        cout << "3- Print database to screen as cipher text." << endl;
+        cout << "4- Print database to screen as cipher text." << endl;
         cout << "5- Back." << endl;
         cin >> userCH;
         while(userCH < 1 || userCH > 5){
@@ -289,6 +301,8 @@ public:
                 break;
             case 4:
                 printEncData();
+                break;
+            case 5:
                 break;
             default:
                 cout << "SW Default." << endl;
